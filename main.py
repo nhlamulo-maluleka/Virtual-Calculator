@@ -1,6 +1,5 @@
 import cv2 as cv
 import mediapipe as mp
-import numpy as np
 import time
 from HandModel import H_Model
 from cvzone.HandTrackingModule import HandDetector
@@ -19,7 +18,6 @@ color1 = (0, 255, 255)
 color2 = (255, 255, 0)
 detector = HandDetector(detectionCon=0.8)
 delayCounter = 0
-
 track = H_Model()
 
 while True:
@@ -27,11 +25,7 @@ while True:
     cTime = time.time()
     frame = cv.flip(frame, flipCode=1)
     img = frame.copy()
-    # img = np.zeros_like(img)
     frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
-    # hands, img = detector.findHands(img, flipType=False)
-
-    # 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
 
     handResults = handObject.process(frame)
 
